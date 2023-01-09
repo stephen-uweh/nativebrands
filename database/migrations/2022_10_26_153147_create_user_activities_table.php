@@ -19,7 +19,7 @@ class CreateUserActivitiesTable extends Migration
             $table->string('activityId')->nullable();
             $table->string('title');
             $table->text('description');
-            $table->boolean('edited')->default(false);
+            $table->boolean('edited')->default(0);
             $table->string('image')->nullable();
             $table->date('date');
             $table->timestamps();

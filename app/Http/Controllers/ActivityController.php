@@ -113,7 +113,7 @@ class ActivityController extends Controller
         $userActivities = UserActivity::where('activityId', $id)->get();
 
         foreach($userActivities as $userActivity){
-            if($userActivity->edited != true)
+            if($userActivity->edited != 1)
             $userActivity->update($request->all());
         }
 
@@ -208,6 +208,8 @@ class ActivityController extends Controller
             $filePath = Cloudinary::uploadFile($request->file('image')->getRealPath())->getSecurePath();
             $request->image = $filePath;
         }
+
+        $request['edited'] = 1;
 
         
 
