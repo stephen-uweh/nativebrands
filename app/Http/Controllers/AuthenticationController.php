@@ -31,14 +31,26 @@ class AuthenticationController extends Controller
         $data['password'] = Hash::make($password);
         if($request->isAdmin){
             $data['isAdmin'] = 1;
-        }
-        $user = User::create($data);
 
-        return response()->json([
-            'status' => 200,
-            'message' => "Admin added",
-            'data' => $user
-        ], 201);
+            $user = User::create($data);
+
+            return response()->json([
+                'status' => 200,
+                'message' => "Admin added",
+                'data' => $user
+            ], 201);
+        }
+
+        else {
+
+            $user = User::create($data);
+
+            return response()->json([
+                'status' => 200,
+                'message' => "User added",
+                'data' => $user
+            ], 201);
+        }
     }
 
     public function login(Request $request){
