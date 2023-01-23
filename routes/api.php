@@ -39,6 +39,7 @@ Route::group(['prefix' => '/global/activities'], function () {
 });
 
 
+
 Route::group(['prefix' => '/users/{user}'], function () {
     
     Route::get('/', [ActivityController::class, 'allUserActivities'])->middleware('can:admin');

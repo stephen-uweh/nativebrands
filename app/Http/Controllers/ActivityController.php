@@ -45,7 +45,7 @@ class ActivityController extends Controller
             ]);
         }
 
-        // Check for maximum activities in a day
+        // Check for the maximum activities in a day
 
         $date = Carbon::parse($request->date)->format('Y-m-d');
 
